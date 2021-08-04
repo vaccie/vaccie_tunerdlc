@@ -18,6 +18,7 @@ RegisterCommand("stance", function()
 end)
 
 RegisterCommand("lowgrip", function()
+  if IsPedInAnyVehicle(ped, false) then
     if GetDriftTyresEnabled(vehicle) == false then
     SetDriftTyresEnabled(vehicle, true)
     notify("Wheel lowgrip mounted.")
@@ -27,4 +28,8 @@ RegisterCommand("lowgrip", function()
     notify("Wheel lowgrip disassembled.")
     print("Wheel lowgrip disassembled.")
     end
-  end)
+  else
+  notify("You're not in any vehicle.")
+  print("You're not in any vehicle.")
+  end
+end)
