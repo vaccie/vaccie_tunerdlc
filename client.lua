@@ -6,7 +6,7 @@ end
 
 Citizen.CreateThread(function()
   while true do Citizen.Wait(500)
-    ped = GetPlayerPed(-1)
+    ped = PlayerPedId()
     vehicle = GetVehiclePedIsIn(ped, false)
   end
 end)
@@ -20,8 +20,8 @@ end)
 RegisterCommand("lowgrip", function()
     if GetDriftTyresEnabled(vehicle) == false then
     SetDriftTyresEnabled(vehicle, true)
-    notify("Wheel lowgrip monuted.")
-    print("Wheel lowgrip monuted.")
+    notify("Wheel lowgrip mounted.")
+    print("Wheel lowgrip mounted.")
     else
     SetDriftTyresEnabled(vehicle, false)
     notify("Wheel lowgrip disassembled.")
