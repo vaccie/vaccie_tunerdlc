@@ -1,3 +1,9 @@
+function notify(text)
+	SetNotificationTextEntry("STRING")
+	AddTextComponentSubstringPlayerName(text)
+	DrawNotification(true, true)
+end
+
 Citizen.CreateThread(function()
   while true do Citizen.Wait(500)
     ped = GetPlayerPed(-1)
@@ -7,15 +13,18 @@ end)
 
 RegisterCommand("stance", function()
     SetReduceDriftVehicleSuspension(vehicle, true)
-    print("Stance inserito")
+    notify("Stance inserted.")
+    print("Stance inserted.")
 end)
 
 RegisterCommand("lowgrip", function()
     if GetDriftTyresEnabled(vehicle) == false then
     SetDriftTyresEnabled(vehicle, true)
-    print("Ruote lowgrip montate")
+    notify("Wheel lowgrip monuted.")
+    print("Wheel lowgrip monuted.")
     else
     SetDriftTyresEnabled(vehicle, false)
-    print("Ruote lowgrip tolte")
+    notify("Wheel lowgrip disassembled.")
+    print("Wheel lowgrip disassembled.")
     end
   end)
