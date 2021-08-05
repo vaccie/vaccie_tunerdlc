@@ -12,9 +12,14 @@ Citizen.CreateThread(function()
 end)
 
 RegisterCommand("stance", function()
+  if IsPedInAnyVehicle(ped, false) then
     SetReduceDriftVehicleSuspension(vehicle, true)
     notify("Stance inserted.")
     print("Stance inserted.")
+  else
+  notify("You're not in any vehicle.")
+  print("You're not in any vehicle.")
+  end
 end)
 
 RegisterCommand("lowgrip", function()
